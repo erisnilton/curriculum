@@ -6,9 +6,12 @@ export const Home: React.FunctionComponent = () => {
     <div>
       <section className="header">
         <div className="header__background-image"></div>
-        <div className="header__card">
+      </section>
+      <section>
+        <div className="business-card">
           <CardInfo/>
         </div>
+        <span>AA</span>
       </section>
     </div>
   );

@@ -57,7 +57,6 @@ export const CardInfo: React.FunctionComponent = () => {
         </div>
       </div>
       <div className="card__image">
-      <div className="card__slant"></div>
         <img src={Profile} alt="Imagem do perfil do usuário" />
       </div>
     </div>

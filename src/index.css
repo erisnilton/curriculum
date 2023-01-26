@@ -6,6 +6,7 @@
 
 html,
 body {
-  font-family: "Open Sans", sans-serif;
   font-family: "Raleway", sans-serif;
+  font-size: clamp(16px, 1vw, 20px);
+  width: 100%;
 }

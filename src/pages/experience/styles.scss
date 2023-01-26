@@ -1,0 +1,63 @@
+.experience {
+  margin-bottom: 2rem;
+
+  &__header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 2rem;
+
+    & img {
+      width: 3.125rem;
+      margin-right: 0.625rem;
+    }
+    & h2 {
+      font-size: 2rem;
+      text-transform: uppercase;
+      font-weight: 600;
+    }
+  }
+
+  &__card {
+    position: relative;
+    background-color: #fff;
+    box-shadow: 0 0 0.625rem rgba(0, 0, 0, 0.2);
+    border-left: 3px solid #06a763;
+    padding: 2.5rem;
+
+    &-title {
+      font-size: 1.5rem;
+      font-weight: 400;
+      margin-bottom: 0.5rem;
+    }
+
+    &-subtitle {
+      margin-bottom: 0.5rem;
+      
+      & span {
+        font-size: 1rem;
+        font-weight: normal;
+      }
+    }
+
+    &-description {
+      font-size: 1rem;
+      font-weight: 300;
+      margin-bottom: 0.5rem;
+    }
+
+    &-link {
+      font-size: 1rem;
+      font-weight: 300;
+      margin-bottom: 0.5rem;
+      color: #06a763;
+      text-decoration: none;
+      transition: all 0.2s ease-in-out;
+
+      &:hover {
+        color: #06a763;
+        text-decoration: underline;
+      }
+    }
+  }
+}

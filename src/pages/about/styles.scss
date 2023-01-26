@@ -1,0 +1,39 @@
+.about {
+  max-width: 60.625rem;
+  margin: 0 auto;
+
+  margin-bottom: 5rem;
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 40px;
+    & > p {
+      font-size: 0.9rem;
+      margin-bottom: 1.25rem;
+      color: #000;
+      font-weight: 400;
+      line-height: 1.5;
+    }
+  }
+  &__button {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin-right: 0.625rem;
+  }
+
+  //braekpoints
+  @media screen and (max-width: 768px) {
+    &__content {
+      padding: 1.25rem;
+    }
+
+    &__button {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+    }
+  }
+}

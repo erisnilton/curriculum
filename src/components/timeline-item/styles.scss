@@ -1,0 +1,73 @@
+.timeline__item {
+  position: relative;
+  width: calc(50% - var(--card-gap));
+
+  &-circle {
+    --circle-size: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    width: var(--circle-size);
+    height: var(--circle-size);
+    border-radius: 50%;
+    background-color: #06a763;
+    top: calc(20% - 25px);
+    left: calc(100% + var(--card-gap) - var(--circle-size) / 2 + 2px);
+
+    &::before {
+      content: "";
+      position: absolute;
+      width: calc(var(--card-gap) - 50%);
+      border: 2px solid #06a763;
+      top: 50%;
+      right: 100%;
+      z-index: -2;
+    }
+
+    & span {
+      font-size: 2rem;
+      color: #fff;
+      font-weight: 900;
+    }
+  }
+
+  & + & {
+    margin-top: -4rem;
+  }
+
+  &:nth-child(even) {
+    align-self: flex-end;
+
+    .timeline__item {
+      &-circle {
+        left: auto;
+        right: calc(100% + var(--card-gap) - var(--circle-size) / 2 - 2px);
+
+        &::before {
+          left: 100%;
+          right: auto;
+        }
+      }
+    }
+  }
+
+  //breakpoint
+  @media screen and (max-width: 768px) {
+    width: 100%;
+    & + & {
+      margin-top: 1.5rem;
+    }
+    align-self: flex-start;
+    &-circle {
+      left: auto;
+      right: 0 !important;
+      z-index: 999999;
+      &::before {
+        display: none;
+        left: auto;
+        right: 100%;
+      }
+    }
+  }
+}

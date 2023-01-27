@@ -11,7 +11,7 @@
     width: var(--circle-size);
     height: var(--circle-size);
     border-radius: 50%;
-    background-color: #06a763;
+    background-color: var(--theme-light-primary);
     top: calc(20% - 25px);
     left: calc(100% + var(--card-gap) - var(--circle-size) / 2 + 2px);
 
@@ -19,7 +19,7 @@
       content: "";
       position: absolute;
       width: calc(var(--card-gap) - 50%);
-      border: 2px solid #06a763;
+      border: 2px solid var(--theme-light-primary);
       top: 50%;
       right: 100%;
       z-index: -2;
@@ -61,7 +61,8 @@
     align-self: flex-start;
     &-circle {
       left: auto;
-      right: 0 !important;
+      top: 1rem;
+      right: 1rem !important;
       z-index: 999999;
       &::before {
         display: none;

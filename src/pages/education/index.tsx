@@ -12,7 +12,7 @@ export const Education: React.FunctionComponent = () => {
       </div>
       <TimeLine>
         {Array.from({ length: 5 }).map((_, index) => (
-          <TimeLineItem  pointer={"P"}>
+          <TimeLineItem  pointer={"P"} key={index}>
             <div className="education__card">
               <h6 className="education__card-title">
                 Preparatory Education

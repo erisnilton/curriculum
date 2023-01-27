@@ -7,7 +7,6 @@
   max-width: 60.625rem;
   margin: 0 auto;
 
-
   &__container {
     position: relative;
     width: 100%;
@@ -24,7 +23,7 @@
       position: relative;
       background-color: #fff;
       box-shadow: 0 0 0.625rem rgba(0, 0, 0, 0.2);
-      border-left: 3px solid #06a763;
+      border-left: 3px solid var(--theme-light-primary);
       padding: 2.5rem;
 
       &-title {
@@ -34,7 +33,6 @@
       }
 
       &-subtitle {
-        
         & span {
           font-size: 1rem;
           font-weight: normal;
@@ -62,7 +60,7 @@
 
       & .education__container-card {
         border-left: none;
-        border-right: 3px solid #06a763;
+        border-right: 3px solid var(--theme-light-primary);
       }
     }
 
@@ -75,7 +73,7 @@
       width: var(--circle-size);
       height: var(--circle-size);
       border-radius: 50%;
-      background-color: #06a763;
+      background-color: var(--theme-light-primary);
       top: calc(20% - 25px);
       left: calc(100% + var(--card-gap) - var(--circle-size) / 2 + 2px);
 
@@ -83,7 +81,7 @@
         content: "";
         position: absolute;
         width: calc(var(--card-gap) - 50%);
-        border: 2px solid #06a763;
+        border: 2px solid var(--theme-light-primary);
         top: 50%;
         right: 100%;
         z-index: -2;
@@ -102,7 +100,7 @@
     top: var(--top--size);
     left: calc(50%);
     height: calc(100% - var(--top--size));
-    border: 2px solid #06a763;
+    border: 2px solid var(--theme-light-primary);
   }
 
   //breakpoint
@@ -120,20 +118,18 @@
       }
 
       & .education__container-cicle {
-        left: calc(100%  - var(--circle-size) - 1rem);
+        left: calc(100% - var(--circle-size) - 1rem);
         z-index: 1;
         right: auto;
-
       }
 
       &-item:nth-child(even) {
         align-self: flex-start;
 
         & .education__container-cicle {
-          left: calc(100%  - var(--circle-size) - 1rem);
+          left: calc(100% - var(--circle-size) - 1rem);
           z-index: 1;
           right: auto;
-
         }
 
         & .education__container-cicle::before {
@@ -143,7 +139,7 @@
         }
 
         & .education__container-card {
-          border-left: 3px solid #06a763;
+          border-left: 3px solid var(--theme-light-primary);
           border-right: none;
         }
       }

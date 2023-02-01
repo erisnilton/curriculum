@@ -52,36 +52,21 @@
       }
 
       & form {
+        width: 100%;
+        padding: 0.5rem 1rem;
         display: flex;
         flex-direction: column;
-        width: 100%;
-        padding: 25px 50px;
 
-        & span {
-          font-size: 0.8em;
-          color: var(--theme-light-danger);
-          margin-top: -25px;
-          margin-bottom: 15px;
+        & div {
+          margin-bottom: 1rem;
         }
 
-        & input {
-          font-size: 1.5rem;
-          padding: 1rem;
-          outline: none;
-          margin-bottom: 2rem;
-
-          &:focus,
-          &:hover {
-            border: 1px solid var(--theme-light-info);
-            border-color: var(--theme-light-info);
-          }
+        & a {
+          text-decoration: none;
+          font-size: 1em;
+          margin-top: 10px;
+          text-align: center;
         }
-      }
-      & a {
-        text-decoration: none;
-        font-size: 1em;
-        margin-top: 10px;
-        text-align: center;
       }
     }
   }

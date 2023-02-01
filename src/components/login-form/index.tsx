@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { useForm, SubmitHandler } from "react-hook-form";
+import React, { useEffect, useState } from "react";
+import { useForm, SubmitHandler, FormProvider } from "react-hook-form";
 import "./styles.scss";
 import Button from "../button";
 
@@ -10,12 +10,11 @@ import { Input } from "../input";
 
 const LoginForm: React.FunctionComponent = () => {
   const navigate = useNavigate();
+  const methods = useForm<LoginSchema>({ resolver: zodResolver(LoginSchema) });
 
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-  } = useForm<LoginSchema>({ resolver: zodResolver(LoginSchema) });
+  useEffect(() => {
+    methods.setFocus("email");
+  },[]);
 
   const onSubmit: SubmitHandler<LoginSchema> = ({ email, password }) => {
     if (email === "" || password === "") return;
@@ -30,27 +29,18 @@ const LoginForm: React.FunctionComponent = () => {
       <div className="container__right">
         <div className="container__right-login">
           <h1>Faça Login</h1>
-          <form onSubmit={handleSubmit(onSubmit)}>
-            <div>
-              <Input
-                placeholder="Email"
-                name="email"
-                register={{ ...register("email") }}
-                error={errors.email?.message}
-              />
-              <Input
-                placeholder="Senha"
-                name="password"
-                type="password"
-                register={{ ...register("password") }}
-                error={errors.password?.message}
-              />
-            </div>
+          <FormProvider {...methods}>
+            <form onSubmit={methods.handleSubmit(onSubmit)}>
+              <div>
+                <Input placeholder="Email" name="email" />
+                <Input placeholder="Senha" name="password" type="password" />
+              </div>
               <Button color="primary" size="lg">
                 Fazer Login
               </Button>
               <Link to={""}>Criar Conta</Link>
-          </form>
+            </form>
+          </FormProvider>
         </div>
       </div>
     </div>

@@ -13,10 +13,14 @@
     outline: none;
     margin-bottom: 0.618rem;
 
-    &:focus,
-    &:hover {
+    &:focus{
       border: 1px solid var(--theme-light-info);
       border-color: var(--theme-light-info);
     }
   }
+  .error {
+    border: 1px solid var(--theme-light-danger);
+    border-color: var(--theme-light-danger);
+  }
+
 }

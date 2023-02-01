@@ -1,11 +1,10 @@
 import "./styles.scss";
-import { UseFormRegister, FieldValues, FieldErrorsImpl } from "react-hook-form";
+import { useFormContext } from "react-hook-form";
+import classNames from "classnames";
 
 export interface InputProps {
-  register: Partial<UseFormRegister<FieldValues>>;
   placeholder: string;
   name: string;
-  error?: string | undefined;
   type?:
     | "text"
     | "password"
@@ -18,11 +17,22 @@ export interface InputProps {
 }
 
 export const Input: React.FunctionComponent<InputProps> = (props) => {
-  const { placeholder, register, error, name, type } = props;
+  const { placeholder, name, type } = props;
+
+  const {
+    register,
+    formState: { errors },
+  } = useFormContext();
+
   return (
     <div className="wrapper">
-      <input className="wrapper__input" type={type} placeholder={placeholder} {...register} />
-      {error && <span>{ error }</span>}
+      <input
+        className={classNames("wrapper__input", {"error": errors[name]})}
+        type={type}
+        placeholder={placeholder}
+        {...register(name)}
+      />
+      {errors && <span>{errors[name]?.message?.toString()}</span>}
     </div>
   );
 };

@@ -1,7 +1,6 @@
 import React from "react";
 
 import Profile from "../../images/profile.png";
-import FacebookRoundedIcon from "@mui/icons-material/FacebookRounded";
 import InstagramIcon from "@mui/icons-material/Instagram";
 import EmailIcon from "@mui/icons-material/Email";
 import LanguageIcon from "@mui/icons-material/Language";
@@ -40,9 +39,6 @@ export const CardInfo: React.FunctionComponent = () => {
         </ul>
 
         <div className="businesscard__info--social">
-          <a href="">
-            <FacebookRoundedIcon />
-          </a>
           <a href="">
             <InstagramIcon />
           </a>

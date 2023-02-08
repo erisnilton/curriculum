@@ -1,0 +1,14 @@
+.input__password {
+  position: relative;
+
+  &--icon {
+    --size-icon: 1.618rem;
+    position: absolute;
+    left: calc(100% - 2rem);
+    top: calc(50% -  2rem);
+    transform: translateY(100%);
+    width: var(--size-icon);
+    height: var(--size-icon);
+    cursor: pointer;
+  }
+}

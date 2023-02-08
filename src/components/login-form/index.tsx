@@ -18,7 +18,7 @@ const LoginForm: React.FunctionComponent = () => {
     navigate("/");
   };
   return (
-    <div className="d-flex login">
+    <div className="login">
       <div className="login__panel">
         <h1 className="">Faça Login</h1>
       </div>
@@ -29,7 +29,7 @@ const LoginForm: React.FunctionComponent = () => {
           <FormProvider {...methods}>
             <form onSubmit={methods.handleSubmit(onSubmit)}>
               <div>
-                <Input label="Matricula" name="registration" type="number" />
+                <Input label="Matricula" name="registration" type="text" />
                 <InputPassword />
               </div>
               <div className="login__form--action">

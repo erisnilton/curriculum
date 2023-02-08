@@ -3,7 +3,7 @@ import { useFormContext } from "react-hook-form";
 import classNames from "classnames";
 
 export interface InputProps {
-  placeholder: string;
+  placeholder?: string;
   name: string;
   type?:
     | "text"
@@ -14,10 +14,12 @@ export interface InputProps {
     | "tel"
     | "url"
     | "search";
+  icon?: React.ReactNode;
+  label?: string;
 }
 
 export const Input: React.FunctionComponent<InputProps> = (props) => {
-  const { placeholder, name, type } = props;
+  const { placeholder, name, type, icon, label } = props;
 
   const {
     register,
@@ -26,13 +28,20 @@ export const Input: React.FunctionComponent<InputProps> = (props) => {
 
   return (
     <div className="wrapper">
-      <input
-        className={classNames("wrapper__input", {"error": errors[name]})}
-        type={type}
-        placeholder={placeholder}
-        {...register(name)}
-      />
+      <div className="wrapper__container">
+        {label && <label className="wrapper__label">{label}</label>}
+        <input
+          id={label}
+          className={classNames("wrapper__input", { error: errors[name] })}
+          type={type}
+          placeholder={placeholder}
+          {...register(name)}
+        />
+        {icon && <div className="wrapper__icon">{icon}</div>}
+      </div>
+
       {errors && <span>{errors[name]?.message?.toString()}</span>}
     </div>
   );
 };
+

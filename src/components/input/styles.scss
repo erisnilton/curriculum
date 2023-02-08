@@ -2,25 +2,48 @@
   display: flex;
   flex-direction: column;
 
+  &__container {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+
+    & label {
+      font-size: 0.8em;
+      color: var(--theme-light-label);
+      margin-bottom: 0.218rem;
+    }
+
+    & input {
+      width: 100%;
+      font-size: 1rem;
+      padding: 0.5rem ;
+      outline: none;
+      margin-bottom: 0.618rem;
+
+      &:focus {
+        border: 1px solid var(--theme-light-info);
+        border-color: var(--theme-light-info);
+      }
+    }
+  }
+
   & span {
     font-size: 0.8em;
     color: var(--theme-light-danger);
+    margin-top: -1.2rem;
   }
 
-  & input {
-    font-size: 1rem;
-    padding: 1rem;
-    outline: none;
-    margin-bottom: 0.618rem;
-
-    &:focus{
-      border: 1px solid var(--theme-light-info);
-      border-color: var(--theme-light-info);
-    }
+  &__icon {
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    top: 1.618rem;
+    left: 1.618rem;
+    color: var(--theme-light-info);
   }
+
   .error {
     border: 1px solid var(--theme-light-danger);
     border-color: var(--theme-light-danger);
   }
-
 }

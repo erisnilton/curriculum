@@ -3,14 +3,14 @@ import "./styles.scss";
 
 export interface TextAreaProps {
   name: string;
-  placeholder: string;
+  placeholder?: string;
   rows?: number;
   cols?: number;
+  label?: string;
 }
 
-const TextArea: React.FC<TextAreaProps> = (props) => {
-
-  const {name, placeholder, rows, cols} = props;
+const TextArea: React.FunctionComponent<TextAreaProps> = (props) => {
+  const { name, placeholder, rows, cols, label } = props;
   const {
     register,
     formState: { errors },
@@ -18,18 +18,15 @@ const TextArea: React.FC<TextAreaProps> = (props) => {
 
   return (
     <div className="textarea">
+      {label && <label htmlFor={name}>{label}</label>}
       <textarea
         rows={rows}
         cols={cols}
         placeholder={placeholder}
         {...register(name)}
       />
-      {/* {errors && (
-        <p className="input__error">{errors[name].message?.toString()}</p>
-      )} */}
     </div>
   );
 };
 
 export default TextArea;
-

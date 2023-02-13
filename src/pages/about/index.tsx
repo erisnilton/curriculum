@@ -1,4 +1,3 @@
-import Button from "../../components/button"
 import "./styles.scss"
 
 export const About: React.FunctionComponent = () => {
@@ -13,11 +12,6 @@ export const About: React.FunctionComponent = () => {
             LESS, JSON, XML, Java, JavaScript, JQuery, Angular JS. Strong
             background in management and leadership.
           </p>
-
-          <div className="about__button">
-            <Button color="success">Download CV</Button>
-            <Button color="success">Contact me</Button>
-          </div>
         </div>
       </section>
 

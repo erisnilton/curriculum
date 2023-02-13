@@ -1,6 +1,7 @@
 import React from "react";
 
 import Profile from "../../images/profile.png";
+import SchoolIcon from "@mui/icons-material/School";
 import InstagramIcon from "@mui/icons-material/Instagram";
 import EmailIcon from "@mui/icons-material/Email";
 import LanguageIcon from "@mui/icons-material/Language";
@@ -39,15 +40,20 @@ export const CardInfo: React.FunctionComponent = () => {
         </ul>
 
         <div className="businesscard__info--social">
-          <a href="">
+          <a href="" title="Instagran">
             <InstagramIcon />
           </a>
-          <a href="">
+
+          <a href="" title="Linkedin">
             <LinkedInIcon />
           </a>
 
-          <a href="">
+          <a href="" title="Github">
             <GitHubIcon />
+          </a>
+
+          <a href="" title="Curriculo Lattes">
+            <SchoolIcon />
           </a>
         </div>
       </div>

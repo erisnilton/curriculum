@@ -13,10 +13,11 @@ export const InputPassword: React.FunctionComponent = () => {
         label="Senha"
         name="password"
         type={showPassword ? "text" : "password"}
-      />
+      > 
       <div className="input__password--icon" onClick={() => setShowPassword(!showPassword)}>
         {showPassword ? <VisibilityIcon /> : <VisibilityOffIcon />}
       </div>
+      </Input>
     </div>
   );
 };

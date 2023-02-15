@@ -11,6 +11,7 @@ const TimeLine: React.FunctionComponent<TimelineProps> = ({
     <div className="timeline">
       <div className="timeline__divider" />
       <div className="timeline__container">{children}</div>
+
     </div>
   );
 };

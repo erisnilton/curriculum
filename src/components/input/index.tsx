@@ -14,12 +14,12 @@ export interface InputProps {
     | "tel"
     | "url"
     | "search";
-  icon?: React.ReactNode;
   label?: string;
+  children?: React.ReactNode;
 }
 
 export const Input: React.FunctionComponent<InputProps> = (props) => {
-  const { placeholder, name, type, icon, label } = props;
+  const { placeholder, name, type, label, children } = props;
 
   const {
     register,
@@ -37,9 +37,8 @@ export const Input: React.FunctionComponent<InputProps> = (props) => {
           placeholder={placeholder}
           {...register(name)}
         />
-        {icon && <div className="wrapper__icon">{icon}</div>}
+        {children}
       </div>
-
       {errors && <span>{errors[name]?.message?.toString()}</span>}
     </div>
   );

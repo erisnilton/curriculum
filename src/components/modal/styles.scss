@@ -9,6 +9,7 @@
   padding: 1rem;
   width: 100%;
   height: 100%;
+  z-index: 9999999;
 
   &__content {
     & > * {

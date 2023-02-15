@@ -1,8 +1,7 @@
 .login {
   display: flex;
   width: 100%;
-  height: 100%;
-  min-height: 100vh;
+  height: 100vh;
 
   &__panel {
     width: 50%;
@@ -18,6 +17,34 @@
     }
   }
 
+  &__arrow {
+    position: absolute;
+    top: calc(50% - 2rem);
+    left: calc(50% - 2rem);
+    border-radius: 50%;
+    background-color: var(--theme-light-primary);
+    color: var(--theme-light-background);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0.5rem;
+    box-shadow: 0 0 0 0.5rem rgba(0, 0, 0, 0.1);
+
+    animation: arrowDesktop 1s infinite  alternate linear;
+
+    @keyframes arrowDesktop {
+      0% {
+        transform: translate(0, 0);
+      }
+      50% {
+        transform: translate(1rem, 0);
+      }
+      100% {
+        transform: translate(0, 0);
+      }
+    }
+  }
+
   &__form {
     width: 50%;
     display: flex;
@@ -26,35 +53,72 @@
     justify-content: center;
     padding: 0 4rem;
 
-    &-right {
+    &--input {
+      margin-bottom: 1rem;
+      width: 100%;
       display: flex;
       flex-direction: column;
-      align-items: center;
-      justify-content: center;
+      & div + div {
+        margin-top: 1rem;
+      }
+    }
+
+    &--action {
+      display: flex;
+      flex-direction: column;
       width: 100%;
-      height: 100%;
-      background: var(--theme-light-background);
+        & a {
+        text-decoration: none;
+        font-size: 1em;
+        margin-top: 10px;
+        text-align: center;
+      }
+    }
+  }
 
-      &__icon {
-        margin-bottom: 20px;
-        font-size: 5rem;
-        color: var(--theme-light-info);
+  // breakpoint for mobile
+  @media screen and (max-width: 768px) {
+    --size-height: 40%;
+    flex-direction: column;
+    width: 100%;
+
+    &__panel {
+      width: 100%;
+      height: var(--size-height);
+      margin-bottom: 3rem;
+    }
+
+    &__arrow {
+      top: calc(0% + var(--size-height) - 2rem);
+      left: calc(50% - 2rem);
+      animation: arrowMobile 1s infinite alternate linear;
+      & svg {
+        width: 2rem;
+        height: 2rem;
+        transform: rotate(90deg);
+      }
+    }
+
+    &__form {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      padding: 0.5rem;
+
+      &--input {
+        margin-bottom: 2rem;
+        & div + div {
+          margin-top: 2rem;
+        }
       }
 
-      & h1 {
-        display: none;
-      }
-
-      & form {
-        width: 100%;
-        padding: 0.5rem 1rem;
+      &--action {
         display: flex;
         flex-direction: column;
 
-        & div {
+        & button {
           margin-bottom: 1rem;
         }
-
         & a {
           text-decoration: none;
           font-size: 1em;
@@ -63,53 +127,18 @@
         }
       }
     }
-    &--action {
-      display: flex;
-      flex-direction: column;
-    }
   }
-
-  // breakpoint for mobile
-  @media screen and (max-width: 768px) {
-    &__panel {
-      display: none;
+  @keyframes arrowMobile {
+    0% {
+      transform: translate(0, 0);
     }
-
-    &__form {
-      width: 100%;
-
-      &-title {
-        height: 50%;
-
-        & h1 {
-          display: block;
-          &__panel {
-            display: none;
-          }
-          &__form {
-            width: 100%;
-            padding: 0 2rem;
-
-            &- {
-              & form {
-                padding: 4rem 0;
-              }
-              & h1 {
-                display: block;
-                font-size: 3rem;
-                font-weight: 400;
-              }
-            }
-          }
-          font-size: 2rem;
-          color: var(--theme-light-info);
-          margin-bottom: 20px;
-        }
-
-        & form {
-          padding: 0.5rem 1rem;
-        }
-      }
+    50% {
+      transform: translate(0, 1rem);
+    }
+    100% {
+      transform: translate(0, 0);
     }
   }
 }
+
+

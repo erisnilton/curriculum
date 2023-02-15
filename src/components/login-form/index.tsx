@@ -2,6 +2,7 @@ import React from "react";
 import { useForm, SubmitHandler, FormProvider } from "react-hook-form";
 import "./styles.scss";
 import Button from "../button";
+import ArrowForwardIosSharpIcon from "@mui/icons-material/ArrowForwardIosSharp";
 
 import { Link, useNavigate } from "react-router-dom";
 import { LoginSchema } from "../../lib/validation";
@@ -23,25 +24,24 @@ const LoginForm: React.FunctionComponent = () => {
         <h1 className="">Faça Login</h1>
       </div>
 
-      <div className="login__form">
-        <div className="login__form-right">
-          <h1>Faça Login</h1>
-          <FormProvider {...methods}>
-            <form onSubmit={methods.handleSubmit(onSubmit)}>
-              <div>
-                <Input label="Matricula" name="registration" type="text" />
-                <InputPassword />
-              </div>
-              <div className="login__form--action">
-                <Button color="primary" size="md">
-                  Fazer Login
-                </Button>
-                <Link to={""}>Criar Conta</Link>
-              </div>
-            </form>
-          </FormProvider>
-        </div>
+      <div className="login__arrow">
+        <ArrowForwardIosSharpIcon fontSize="large" />
       </div>
+
+      <FormProvider {...methods}>
+        <form className="login__form" onSubmit={methods.handleSubmit(onSubmit)}>
+          <div className="login__form--input">
+              <Input label="Matricula" name="registration" type="text" />
+              <InputPassword />
+          </div>
+          <div className="login__form--action">
+            <Button color="primary" size="md">
+              Fazer Login
+            </Button>
+            <Link to={"/account"}>Criar Conta</Link>
+          </div>
+        </form>
+      </FormProvider>
     </div>
   );
 };

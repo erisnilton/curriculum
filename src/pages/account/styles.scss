@@ -1,0 +1,144 @@
+.account {
+  display: flex;
+  width: 100%;
+  height: 100vh;
+
+  &__panel {
+    width: 50%;
+    background: var(--theme-light-info);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    & h1 {
+      font-size: 3rem;
+      color: var(--theme-light-background);
+      margin-bottom: 20px;
+    }
+  }
+
+  &__arrow {
+    position: absolute;
+    top: calc(50% - 2rem);
+    left: calc(50% - 2rem);
+    border-radius: 50%;
+    background-color: var(--theme-light-info);
+    color: var(--theme-light-background);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0.5rem;
+    box-shadow: 0 0 0 0.5rem rgba(0, 0, 0, 0.1);
+
+    animation: arrowDesktop 1s infinite  alternate linear;
+
+    @keyframes arrowDesktop {
+      0% {
+        transform: translate(0, 0);
+      }
+      50% {
+        transform: translate(1rem, 0);
+      }
+      100% {
+        transform: translate(0, 0);
+      }
+    }
+  }
+
+  &__form {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 0 4rem;
+
+    &--input {
+      margin-bottom: 1rem;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      & div + div {
+        margin-top: 1rem;
+      }
+    }
+
+    &--action {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      & a {
+        text-decoration: none;
+        font-size: 1em;
+        margin-top: 10px;
+        text-align: center;
+      }
+    }
+  }
+
+  // breakpoint for mobile
+  @media screen and (max-width: 768px) {
+    --size-height: 40%;
+    flex-direction: column;
+    width: 100%;
+
+    &__panel {
+      width: 100%;
+      height: var(--size-height);
+      margin-bottom: 3rem;
+    }
+
+    &__arrow {
+      top: calc(0% + var(--size-height) - 2rem);
+      left: calc(50% - 2rem);
+      animation: arrowMobile 1s infinite alternate linear;
+      & svg {
+        width: 2rem;
+        height: 2rem;
+        transform: rotate(90deg);
+      }
+    }
+
+    &__form {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      padding: 0.5rem;
+
+      &--input {
+        margin-bottom: 2rem;
+        & div + div {
+          margin-top: 2rem;
+        }
+      }
+
+      &--action {
+        display: flex;
+        flex-direction: column;
+
+        & button {
+          margin-bottom: 1rem;
+        }
+        & a {
+          text-decoration: none;
+          font-size: 1em;
+          margin-top: 10px;
+          text-align: center;
+        }
+      }
+    }
+  }
+  @keyframes arrowMobile {
+    0% {
+      transform: translate(0, 0);
+    }
+    50% {
+      transform: translate(0, 1rem);
+    }
+    100% {
+      transform: translate(0, 0);
+    }
+  }
+}
+
+

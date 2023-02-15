@@ -1,8 +1,6 @@
 .about {
   max-width: 60.625rem;
-  margin: 0 auto;
-
-  margin-bottom: 4rem;
+  margin-bottom: 2rem;
 
   
   &__content {
@@ -11,8 +9,8 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 40px;
     & > p {
+      padding: 2.5rem;
       font-size: 0.9rem;
       margin-bottom: 1.25rem;
       color: #000;
@@ -23,8 +21,18 @@
   &__button {
     display: flex;
     justify-content: center;
+    transform: translateY(-50%);
     width: 100%;
-    margin-right: 0.625rem;
+    
+    &--action {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      
+      & span {
+        margin-left: 0.125rem;
+      }
+    }
   }
 
   //braekpoints

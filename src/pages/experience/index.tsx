@@ -1,9 +1,17 @@
+import React, { useState } from "react";
 import TimeLine from "../../components/timeline";
-import TimeLineItem from "../../components/timeline-item";
 import XP from "../../images/xp.png";
+import Modal from "../../components/modal";
+import Button from "../../components/button";
+import Dialog from "../../components/dialog";
+import AddIcon from "@mui/icons-material/Add";
 import "./styles.scss";
+import ExperienceForm from "../../components/experience-form";
+import { CardExperience } from "../../components/card-experience";
 
 export const Experience: React.FunctionComponent = () => {
+
+  const [isVisibleModal, setIsVisibleModal] = useState(false);
   return (
     <>
       <section className="experience">
@@ -12,24 +20,25 @@ export const Experience: React.FunctionComponent = () => {
           <h2>Experience</h2>
         </div>
         <TimeLine>
-          {Array.from({ length: 5 }).map((_, index) => (
-            <TimeLineItem pointer="D" key={index}>
-              <div className="experience__card">
-                <h6 className="experience__card-title">Designer</h6>
-                <div className="experience__card-subtitle">
-                  <span>RulerSoft</span>
-                  <span>
-                    <small>Jan 2010 - Mar 2012</small>
-                  </span>
-                </div>
-                <p className="experience__card-description">
-                  I started my designing carrier here, spent tow years learning
-                  and working in various designing aspects..
-                </p>
+          <CardExperience />
+            <div className="experience__button">
+            <Button
+              color="success"
+              size="sm"
+              onClick={() => setIsVisibleModal(true)}
+            >
+              <div className="experience__button--action">
+                <AddIcon />
+                <span>Experiência Profissionais</span>
               </div>
-            </TimeLineItem>
-          ))}
+            </Button>
+          </div>  
         </TimeLine>
+        <Modal open={isVisibleModal} onChangeOpen={setIsVisibleModal}>
+          <Dialog>
+            <ExperienceForm />
+          </Dialog>
+        </Modal>
       </section>
     
     </>

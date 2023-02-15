@@ -35,7 +35,7 @@
       margin-bottom: 0.5rem;
 
       & span {
-        font-size: 1rem;
+        font-size: .9rem;
         font-weight: normal;
       }
     }
@@ -57,6 +57,32 @@
       &:hover {
         color: var(--theme-light-primary);
         text-decoration: underline;
+      }
+    }
+  }
+  &__button {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform: translateY(calc(100% - 1.25rem));
+
+    &--action {
+      display: flex;
+      align-items: center;
+      & span {
+        margin-left: 0.125rem;
+      }
+    }
+  }
+
+  @media (max-width: 768px) {
+    &__button {
+      & button {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
       }
     }
   }

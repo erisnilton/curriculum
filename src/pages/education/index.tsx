@@ -1,9 +1,20 @@
+import { useState } from "react";
+import EducationForm from "../../components/education-form";
 import TimeLine from "../../components/timeline";
-import TimeLineItem from "../../components/timeline-item";
 import Book from "../../images/book.png";
+import Modal from "../../components/modal";
+import Button from "../../components/button";
+import Dialog from "../../components/dialog";
+import AddIcon from "@mui/icons-material/Add";
+import { useEducationContext } from "../../contexts/education-context";
+import { CardEducation } from "../../components/card-education";
 import "./styles.scss";
 
 export const Education: React.FunctionComponent = () => {
+  const [isVisibleModal, setIsVisibleModal] = useState(false);
+
+  const { items } = useEducationContext();
+
   return (
     <section className="education">
       <div className="education__header">
@@ -11,27 +22,25 @@ export const Education: React.FunctionComponent = () => {
         <h2>Educação</h2>
       </div>
       <TimeLine>
-        {Array.from({ length: 5 }).map((_, index) => (
-          <TimeLineItem  pointer={"P"} key={index}>
-            <div className="education__card">
-              <h6 className="education__card-title">
-                Preparatory Education
-              </h6>
-              <div className="education__card-subtitle">
-                <span>Fedrick School</span>
-                <span>
-                  <small>Jan 1997 - Mar 2000</small>
-                </span>
-              </div>
-              <p className="education__card-description">
-                I completed my preparatory education from this prestigious
-                institution. I successful completed all the credits without any
-                fallout and got A grade overall.
-              </p>
+        <CardEducation />
+        <div className="education__button">
+          <Button
+            color="success"
+            size="sm"
+            onClick={() => setIsVisibleModal(true)}
+          >
+            <div className="education__button--action">
+              <AddIcon />
+              <span>Informações Educacionais</span>
             </div>
-          </TimeLineItem>
-        ))}
+          </Button>
+        </div>
       </TimeLine>
+      <Modal open={isVisibleModal} onChangeOpen={setIsVisibleModal}>
+        <Dialog>
+          <EducationForm />
+        </Dialog>
+      </Modal>
     </section>
   );
 };

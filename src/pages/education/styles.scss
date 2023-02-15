@@ -1,5 +1,5 @@
 .education {
-  margin-bottom: 5rem;
+  margin-bottom: 4rem;
 
   &__header {
     display: flex;
@@ -17,46 +17,27 @@
       font-weight: 600;
     }
   }
-
-  &__card {
-    position: relative;
-    background-color: #fff;
-    box-shadow: 0 0 0.625rem rgba(0, 0, 0, 0.2);
-    border-left: 3px solid var(--theme-light-primary);
-    padding: 2.5rem;
-
-    &-title {
-      font-size: 1.5rem;
-      font-weight: 400;
-      margin-bottom: 0.5rem;
-    }
-
-    &-subtitle {
-      margin-bottom: 0.5rem;
-
+  &__button {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform: translateY(calc(100% - 1.25rem));
+    &--action {
+      display: flex;
+      align-items: center;
       & span {
-        font-size: 1rem;
-        font-weight: normal;
+        margin-left: 0.125rem;
       }
     }
-
-    &-description {
-      font-size: 1rem;
-      font-weight: 300;
-      margin-bottom: 0.5rem;
-    }
-
-    &-link {
-      font-size: 1rem;
-      font-weight: 300;
-      margin-bottom: 0.5rem;
-      color: var(--theme-light-primary);
-      text-decoration: none;
-      transition: all 0.2s ease-in-out;
-
-      &:hover {
-        color: var(--theme-light-primary);
-        text-decoration: underline;
+  }
+  @media (max-width: 768px) {
+    &__button {
+      & button {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
       }
     }
   }

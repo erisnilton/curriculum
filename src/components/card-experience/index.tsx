@@ -9,20 +9,30 @@ import { useState } from "react";
 import { useExperienceContext } from "../../contexts/experience-context";
 import ExperienceForm from "../experience-form";
 import { DeleteExperience } from "../../backend";
+import Confirm from "../confirm";
 
 export const CardExperience: React.FunctionComponent = () => {
   const [isModalVisible, setIsModalVisible] = useState(false);
+  const [confirmModal, setConfirmModal] = useState(false);
   const [idSelected, setIdSelected] = useState<number>();
 
   const { items, loadItems } = useExperienceContext();
+  
   const edit = Object.keys(items).length > 0;
 
   const handleDelete = (id: number | undefined) => async () => {
-    const result = window.confirm("Deseja realmente excluir este item?");
-    if (result) {
-      await DeleteExperience(id);
-      loadItems();
-    }
+    setIdSelected(id);
+    setConfirmModal(true);
+  };
+
+  const handleOK = async () => {
+    await DeleteExperience(idSelected);
+    setConfirmModal(false);
+    loadItems();
+  };
+
+  const handleCancel = () => {
+    setConfirmModal(false);
   };
   return (
     <>
@@ -58,6 +68,17 @@ export const CardExperience: React.FunctionComponent = () => {
       <Modal open={isModalVisible} onChangeOpen={setIsModalVisible}>
         <Dialog>
           <ExperienceForm edit={edit} id={idSelected} />
+        </Dialog>
+      </Modal>
+
+      <Modal open={confirmModal} onChangeOpen={setConfirmModal}>
+        <Dialog>
+          <Confirm
+            title="Deletar"
+            message="Deseja realmente excluir este item?"
+            onConfirm={handleOK}
+            onCancel={handleCancel}
+          />
         </Dialog>
       </Modal>
     </>

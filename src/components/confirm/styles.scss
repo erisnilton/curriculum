@@ -1,0 +1,21 @@
+.confirm {
+  .confirm__content {
+    padding: 20px;
+    .confirm__title {
+      font-size: 20px;
+      font-weight: 600;
+      margin-bottom: 10px;
+    }
+    .confirm__message {
+      font-size: 16px;
+      margin-bottom: 20px;
+    }
+    .confirm__actions {
+      display: flex;
+      justify-content: flex-end;
+      button {
+        margin-left: 10px;
+      }
+    }
+  } 
+}

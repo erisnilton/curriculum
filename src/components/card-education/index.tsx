@@ -9,21 +9,31 @@ import Dialog from "../dialog";
 import EducationForm from "../education-form";
 import { useState } from "react";
 import { DeleteEducation } from "../../backend";
+import Confirm from "../confirm";
 
 export const CardEducation: React.FunctionComponent = () => {
   const [isModalVisible, setIsModalVisible] = useState(false);
+  const [confirmModal, setConfirmModal] = useState(false);
   const [idSelected, setIdSelected] = useState<number>();
-  
+
   const { items, loadItems } = useEducationContext();
-  const  edit = Object.keys(items).length > 0;
+  const edit = Object.keys(items).length > 0;
 
   const handleDelete = (id: number | undefined) => async () => {
-    const result = window.confirm("Deseja realmente excluir este item?");
-    if (result) {
-      await DeleteEducation(id);
-      loadItems();
-    }
+    setIdSelected(id);
+    setConfirmModal(true);
   };
+
+  const handleOK = async () => {
+    await DeleteEducation(idSelected);
+    setConfirmModal(false);
+    loadItems();
+  };
+
+  const handleCancel = () => {
+    setConfirmModal(false);
+  };
+
   return (
     <>
       {items.map((item) => (
@@ -57,7 +67,18 @@ export const CardEducation: React.FunctionComponent = () => {
 
       <Modal open={isModalVisible} onChangeOpen={setIsModalVisible}>
         <Dialog>
-          <EducationForm edit={edit} id={idSelected}  />
+          <EducationForm edit={edit} id={idSelected} />
+        </Dialog>
+      </Modal>
+
+      <Modal open={confirmModal} onChangeOpen={setConfirmModal}>
+        <Dialog>
+          <Confirm
+            title="Deletar"
+            message="Deseja realmente excluir este item?"
+            onConfirm={handleOK}
+            onCancel={handleCancel}
+          />
         </Dialog>
       </Modal>
     </>

@@ -35,9 +35,11 @@ export const Experience: React.FunctionComponent = () => {
           </div>  
         </TimeLine>
         <Modal open={isVisibleModal} onChangeOpen={setIsVisibleModal}>
+        <div style={{width: '100%', maxWidth: '800px'}}>
           <Dialog>
             <ExperienceForm />
           </Dialog>
+        </div>
         </Modal>
       </section>
     

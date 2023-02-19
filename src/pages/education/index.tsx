@@ -36,10 +36,13 @@ export const Education: React.FunctionComponent = () => {
           </Button>
         </div>
       </TimeLine>
+
       <Modal open={isVisibleModal} onChangeOpen={setIsVisibleModal}>
-        <Dialog>
-          <EducationForm />
-        </Dialog>
+        <div style={{ width: "100%", maxWidth: "800px" }}>
+          <Dialog>
+            <EducationForm />
+          </Dialog>
+        </div>
       </Modal>
     </section>
   );

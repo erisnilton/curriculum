@@ -2,12 +2,10 @@ import "./styles.scss";
 import AddIcon from "@mui/icons-material/Add";
 import EditIcon from "@mui/icons-material/Edit";
 import Button from "../../components/button";
-import Modal, { useModal } from "../../components/modal";
-import React, { useState, useEffect } from "react";
+import Modal from "../../components/modal";
+import React, { useState } from "react";
 import Dialog from "../../components/dialog";
 import AboutForm from "../../components/about-form";
-import { GetAboutService } from "../../services";
-import { Info } from "../../model";
 import { useAboutContext } from "../../contexts/about-context";
 
 export const About: React.FunctionComponent = () => {
@@ -45,9 +43,11 @@ export const About: React.FunctionComponent = () => {
         )}
       </div>
       <Modal open={isVisibleModal} onChangeOpen={setIsVisibleModal}>
+      <div style={{ width: "100%", maxWidth: "800px" }}>
         <Dialog>
           <AboutForm edit={edit} />
         </Dialog>
+      </div>
       </Modal>
     </section>
   );

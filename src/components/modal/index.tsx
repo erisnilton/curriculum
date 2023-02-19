@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useRef } from "react";
 import { useState, useEffect, useContext } from "react";
 import { createPortal } from "react-dom";
+import { CSSTransition } from "react-transition-group";
 
 import "./styles.scss";
 
@@ -65,19 +66,26 @@ const Modal: React.FunctionComponent<ModalProps> = (props) => {
     }
   }, [isOpen]);
 
-  return isOpen ? (
-    createPortal(
-      <ModalContext.Provider value={{ isOpen, open, close, toogle }}>
-        <div className="modal" onClick={close}>
+  const divRef = useRef<HTMLDivElement>(null);
+
+  return createPortal(
+    <ModalContext.Provider value={{ isOpen, open, close, toogle }}>
+      <CSSTransition
+        classNames="modal-transition"
+        in={isOpen}
+        unmountOnExit
+        timeout={200}
+        nodeRef={divRef}
+
+      >
+        <div ref={divRef} className="modal" onClick={close}>
           <div className="modal__content" onClick={handleContentClick}>
             {children}
           </div>
         </div>
-      </ModalContext.Provider>,
-      document.body
-    )
-  ) : (
-    <></>
+      </CSSTransition>
+    </ModalContext.Provider>,
+    document.body
   );
 };
 

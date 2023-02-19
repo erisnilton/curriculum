@@ -39,7 +39,7 @@ const EducationForm: React.FunctionComponent<EducationFormProps> = ({
     }
   }, [edit, id]);
 
-  const onSubmit = async (values: EducationSchema) => {
+  const onSubmit = async (values: EducationSchema) => {    
     if (edit) {
       await UpdateEducation(values, id);
       toast.success("Informação atualizada com sucesso!", {
@@ -55,6 +55,11 @@ const EducationForm: React.FunctionComponent<EducationFormProps> = ({
     loadItems();
   };
 
+  const hadleCancel = (e) => {
+    e.preventDefault();
+    modal.close();
+  };
+
   return (
     <div className="education__form">
       <h2>Formação Educacional</h2>
@@ -67,17 +72,17 @@ const EducationForm: React.FunctionComponent<EducationFormProps> = ({
             <Input label="Cursos" name="course" />
           </div>
           <div className="education__form--input">
-            <Input label="Data de Início" name="start_date" />
+            <Input label="Data de Início" name="start_date" type="date" />
           </div>
           <div className="education__form--input">
-            <Input label="Data de Termino" name="end_date" />
+            <Input label="Data de Termino" name="end_date" type="date" />
           </div>
           <div className="education__form--input">
             <TextArea label="Descrição" name="description" />
           </div>
 
           <div className="education__form--action">
-            <Button color="secondary" onClick={modal.close}>
+            <Button color="secondary" onClick={hadleCancel}>
               Cancelar
             </Button>
             <Button color="primary">Salvar</Button>

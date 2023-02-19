@@ -37,6 +37,11 @@ const AboutForm: React.FunctionComponent<AboutFormProps> = ({ edit }) => {
     loadItems();
   };
 
+  const handleCancel = (event) => {
+    event.preventDefault();
+    modal.close();
+  };
+
   useEffect(() => {
     if (edit) {
       methods.setValue("fullname", items.fullname);
@@ -93,7 +98,7 @@ const AboutForm: React.FunctionComponent<AboutFormProps> = ({ edit }) => {
             <TextArea label="Sobre" name="about" />
           </div>
           <div className="about__form--action">
-            <Button color="secondary" onClick={modal.close}>
+            <Button color="secondary" onClick={handleCancel}>
               Cancelar
             </Button>
             <Button color="primary">Salvar</Button>

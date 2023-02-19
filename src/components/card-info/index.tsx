@@ -67,7 +67,7 @@ export const CardInfo: React.FunctionComponent = () => {
           </div>
         ) : (
           <div className="businesscard__caption">
-            <h1>Começe adicionando suas informações sobre <b>você</b> aqui!</h1>
+            <h1>Começe adicionando informações sobre você!</h1>
           </div>
         )}
         {wasItems && (

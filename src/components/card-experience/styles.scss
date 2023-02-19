@@ -1,55 +1,50 @@
-.card-experience {
+.card__experience {
   position: relative;
   background-color: #fff;
   box-shadow: 0 0 0.625rem rgba(0, 0, 0, 0.2);
   border-left: 3px solid var(--theme-light-primary);
-  padding: 2.5rem;
+  padding: 1rem;
 
-  &-title {
-    font-size: 1.5rem;
-    font-weight: 400;
-    margin-bottom: 0.5rem;
+  &--header {
+    &-title {
+      font-size: 1.2rem;
+      font-weight: bold;
+      margin-bottom: 1rem;
+      text-transform: uppercase;
+    }
+    &-subtitle {
+      margin-bottom: 1rem;
+
+      & span {
+        font-size: 1rem;
+        font-weight: 400;
+        color: var(--theme-light-label);
+      }
+    }
   }
 
-  &-subtitle {
-    margin-bottom: 0.5rem;
-
-    & span {
-      font-size: .9rem;
+  &--body {
+    &-description {
+      font-size: 1rem;
       font-weight: normal;
+      margin-bottom: 0.5rem;
+      text-align: justify;
+      white-space: pre-line;
+      line-height: 1.5;
     }
   }
 
-  &-description {
-    font-size: 1rem;
-    font-weight: 300;
-    margin-bottom: 0.5rem;
-  }
-
-  &-link {
-    font-size: 1rem;
-    font-weight: 300;
-    margin-bottom: 0.5rem;
-    color: var(--theme-light-primary);
-    text-decoration: none;
-    transition: all 0.2s ease-in-out;
-
-    &:hover {
-      color: var(--theme-light-primary);
-      text-decoration: underline;
-    }
-  }
-
-  &-actions {
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    padding: 1rem;
+  &--footer {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    margin-top: 2rem;
 
     & button {
       background-color: transparent;
     }
-    
+
     & button:nth-child(1) {
       color: var(--theme-light-info);
     }

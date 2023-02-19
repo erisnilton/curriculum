@@ -14,55 +14,48 @@
     flex-direction: column;
     align-items: flex-start;
 
-    &-item {
-      position: relative;
-      width: calc(50% - var(--card-gap));
-    }
+    // &-item {
+    //   position: relative;
+    //   width: calc(50% - var(--card-gap));
+    // }
 
-    &-card {
-      position: relative;
-      background-color: #fff;
-      box-shadow: 0 0 0.625rem rgba(0, 0, 0, 0.2);
-      border-left: 3px solid var(--theme-light-primary);
-      padding: 2.5rem;
+    // &-card {
+    //   position: relative;
+    //   background-color: #fff;
+    //   box-shadow: 0 0 0.625rem rgba(0, 0, 0, 0.2);
+    //   border-left: 3px solid var(--theme-light-primary);
+    //   padding: 2.5rem;
 
-      &-title {
-        font-size: 1.5rem;
-        font-weight: 400;
-        margin-bottom: 0.5rem;
-      }
+    //   &-title {
+    //     font-size: 1.5rem;
+    //     font-weight: 400;
+    //     margin-bottom: 0.5rem;
+    //   }
 
-      &-subtitle {
-        & span {
-          font-size: 1rem;
-          font-weight: normal;
-          display: block;
-        }
-      }
-    }
+    //  p
 
     &-item + &-item {
       margin-top: -4rem;
     }
 
-    &-item:nth-child(even) {
-      align-self: flex-end;
+    // &-item:nth-child(even) {
+      
 
-      & .education__container-cicle {
-        left: auto;
-        right: calc(100% + var(--card-gap) - var(--circle-size) / 2 - 2px);
-      }
+    //   & .education__container-cicle {
+    //     left: auto;
+    //     right: calc(100% + var(--card-gap) - var(--circle-size) / 2 - 2px);
+    //   }
 
-      & .education__container-cicle::before {
-        left: 100%;
-        right: auto;
-      }
+    //   & .education__container-cicle::before {
+    //     left: 100%;
+    //     right: auto;
+    //   }
 
-      & .education__container-card {
-        border-left: none;
-        border-right: 3px solid var(--theme-light-primary);
-      }
-    }
+    //   & .education__container-card {
+    //     border-left: none;
+    //     border-right: 3px solid var(--theme-light-primary);
+    //   }
+    // }
 
     &-cicle {
       --circle-size: 50px;

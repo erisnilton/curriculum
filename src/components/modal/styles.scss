@@ -17,9 +17,26 @@
     }
     display: contents;
   }
-
 }
 html[data-modal] {
   padding-right: 16px;
   overflow: hidden;
+}
+
+.modal-transition {
+  opacity: 0;
+}
+
+.modal-transition-active {
+  opacity: 1;
+  transition: opacity 250ms ease-in;
+}
+
+.modal-transition-exit {
+  opacity: 1;
+}
+
+.modal-transition-exit-active {
+  opacity: 0;
+  transition: opacity 250ms ease-in;
 }

@@ -5,8 +5,12 @@
   background-color: var(--theme-light-primary);
 
   &__info {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: flex-start;
+    padding: 1.25rem 1.875rem;
     flex: 1;
-    padding: 2.5rem;
 
     &--title {
       color: #fff;
@@ -14,14 +18,12 @@
       font-weight: 900;
       text-transform: uppercase;
       text-shadow: rgb(0 0 0 / 29%) 2px 2px 4px;
-      margin-bottom: 0.5rem;
+      margin-bottom: -2rem;
     }
     &--description {
       font-size: 1.2rem;
       color: var(--theme-light-panel);
       font-weight: 300;
-      margin-top: -0.313rem;
-      margin-bottom: 1.875rem;
     }
 
     &--personal {
@@ -30,7 +32,6 @@
       font-size: 0.938rem;
       font-weight: 400;
 
-      margin-bottom: 1.875rem;
 
       & li {
         display: flex;
@@ -48,7 +49,6 @@
       display: flex;
       align-items: center;
       justify-content: flex-start;
-      margin-top: 1.25rem;
 
       & img {
         width: 1.5rem;
@@ -92,7 +92,12 @@
     justify-content: center;
     flex-direction: column;
     align-items: center;
-    font-size: 1.5rem;
+    
+    & h1 {
+      font-size: 2rem;
+      font-weight: 900;
+      text-transform: uppercase;
+    }
   }
 
   &__arrow {
@@ -133,6 +138,7 @@
     &__info {
       &--title {
         font-size: 1.5rem;
+        margin: 0;
       }
     }
 

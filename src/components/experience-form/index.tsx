@@ -70,10 +70,10 @@ const ExperienceForm: React.FunctionComponent<ExperienceFormProps> = ({
             <Input label="Instituição" name="institution" />
           </div>
           <div className="experience__form--input">
-            <Input label="Data de Início" name="start_date" />
+            <Input label="Data de Início" name="start_date" type="date" />
           </div>
           <div className="experience__form--input">
-            <Input label="Data de Termino" name="end_date" />
+            <Input label="Data de Termino" name="end_date" type="date" />
           </div>
           <div className="experience__form--input">
             <TextArea label="Descrição" name="description" />

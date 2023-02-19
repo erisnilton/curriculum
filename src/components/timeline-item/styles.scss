@@ -12,7 +12,6 @@
     height: var(--circle-size);
     border-radius: 50%;
     background-color: var(--theme-light-primary);
-    top: calc(20% - 25px);
     left: calc(100% + var(--card-gap) - var(--circle-size) / 2 + 2px);
 
     &::before {
@@ -33,17 +32,16 @@
   }
 
   & + & {
-    margin-top: -4rem;
+    margin-top: 0.5rem;
   }
 
   &:nth-child(even) {
-    align-self: flex-end;
+    left: calc(50% + var(--card-gap));
 
     .timeline__item {
       &-circle {
         left: auto;
         right: calc(100% + var(--card-gap) - var(--circle-size) / 2 - 2px);
-
         &::before {
           left: 100%;
           right: auto;
@@ -68,6 +66,19 @@
         display: none;
         left: auto;
         right: 100%;
+      }
+    }
+    &:nth-child(even) {
+      left: auto;
+      .timeline__item {
+        &-circle {
+          left: auto;
+          right: 1rem !important;
+          &::before {
+            left: auto;
+            right: 100%;
+          }
+        }
       }
     }
   }

@@ -1,13 +1,13 @@
-import React from "react";
-import { useForm, SubmitHandler, FormProvider } from "react-hook-form";
-import "./styles.scss";
-import ArrowForwardIosSharpIcon from "@mui/icons-material/ArrowForwardIosSharp";
-import { Link, useNavigate } from "react-router-dom";
-import { LoginSchema } from "../../lib/validation";
 import { zodResolver } from "@hookform/resolvers/zod";
+import ArrowForwardIosSharpIcon from "@mui/icons-material/ArrowForwardIosSharp";
+import React from "react";
+import { FormProvider, SubmitHandler, useForm } from "react-hook-form";
+import { Link, useNavigate } from "react-router-dom";
+import Button from "../../components/button";
 import { Input } from "../../components/input";
 import InputPassword from "../../components/input-password";
-import Button from "../../components/button";
+import { LoginSchema } from "../../lib/validation";
+import "./styles.scss";
 
 const Account: React.FunctionComponent = () => {
   const navigate = useNavigate();
@@ -37,7 +37,7 @@ const Account: React.FunctionComponent = () => {
             <InputPassword />
           </div>
           <div className="account__form--action">
-            <Button color="primary" size="md">
+            <Button color="primary" name="create-account" size="md">
               Criar Conta
             </Button>
             <Link to={"/login"}>Voltar</Link>

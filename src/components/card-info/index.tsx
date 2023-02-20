@@ -1,13 +1,13 @@
-import React, { useEffect } from "react";
+import React from "react";
 
-import SchoolIcon from "@mui/icons-material/School";
-import InstagramIcon from "@mui/icons-material/Instagram";
+import ArrowDownwardIcon from "@mui/icons-material/ArrowDownward";
 import EmailIcon from "@mui/icons-material/Email";
+import GitHubIcon from "@mui/icons-material/GitHub";
+import InstagramIcon from "@mui/icons-material/Instagram";
+import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import Phone from "@mui/icons-material/Phone";
 import Place from "@mui/icons-material/Place";
-import LinkedInIcon from "@mui/icons-material/LinkedIn";
-import GitHubIcon from "@mui/icons-material/GitHub";
-import ArrowDownwardIcon from "@mui/icons-material/ArrowDownward";
+import SchoolIcon from "@mui/icons-material/School";
 import { useAboutContext } from "../../contexts/about-context";
 import "./styles.scss";
 
@@ -22,7 +22,7 @@ export const CardInfo: React.FunctionComponent = () => {
         {wasItems ? (
           <div className="businesscard__info">
             <h4 className="businesscard__info--title">{items.fullname}</h4>
-            <h6 className="businesscard__info--description">{items.title}</h6>
+            <h5 className="businesscard__info--description">{items.title}</h5>
             <ul className="businesscard__info--personal">
               <li>
                 <EmailIcon />

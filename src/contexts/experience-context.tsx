@@ -3,8 +3,8 @@ import { GetExperience } from "../backend";
 import { ExperienceSchema } from "../lib/validation";
 
 export const ExperienceContext = React.createContext({
-  items: [] as ExperienceSchema [],
-  loadItems: ()  => {},
+  items: [] as ExperienceSchema[],
+  loadItems: () => {},
 });
 
 export const ExperienceProvider = ({ children }: any) => {

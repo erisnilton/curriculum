@@ -1,15 +1,14 @@
-import React, { useEffect } from "react";
-import { useForm, SubmitHandler, FormProvider } from "react-hook-form";
-import { AboutSchema } from "../../lib/validation";
 import { zodResolver } from "@hookform/resolvers/zod";
-import TextArea from "../textarea";
+import React, { useEffect } from "react";
+import { FormProvider, SubmitHandler, useForm } from "react-hook-form";
+import { toast } from "react-toastify";
+import { CreateAbout, UpdateAbout } from "../../backend";
+import { AboutSchema } from "../../lib/validation";
+import Button from "../button";
 import { Input } from "../input";
 import { useModal } from "../modal";
+import TextArea from "../textarea";
 import "./styles.scss";
-import Button from "../button";
-import { UpdateAbout, CreateAbout } from "../../backend";
-import { toast } from "react-toastify";
-
 
 import { useAboutContext } from "../../contexts/about-context";
 
@@ -98,10 +97,10 @@ const AboutForm: React.FunctionComponent<AboutFormProps> = ({ edit }) => {
             <TextArea label="Sobre" name="about" />
           </div>
           <div className="about__form--action">
-            <Button color="secondary" onClick={handleCancel}>
+            <Button color="secondary" onClick={handleCancel} name="cancel">
               Cancelar
             </Button>
-            <Button color="primary">Salvar</Button>
+            <Button color="primary" name="save">Salvar</Button>
           </div>
         </form>
       </FormProvider>

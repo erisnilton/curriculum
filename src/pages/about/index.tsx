@@ -1,12 +1,12 @@
-import "./styles.scss";
 import AddIcon from "@mui/icons-material/Add";
 import EditIcon from "@mui/icons-material/Edit";
-import Button from "../../components/button";
-import Modal from "../../components/modal";
 import React, { useState } from "react";
-import Dialog from "../../components/dialog";
 import AboutForm from "../../components/about-form";
+import Button from "../../components/button";
+import Dialog from "../../components/dialog";
+import Modal from "../../components/modal";
 import { useAboutContext } from "../../contexts/about-context";
+import "./styles.scss";
 
 export const About: React.FunctionComponent = () => {
   const [isVisibleModal, setIsVisibleModal] = useState(false);
@@ -22,6 +22,7 @@ export const About: React.FunctionComponent = () => {
           <Button
             color="success"
             size="sm"
+            name="edit-about"
             onClick={() => setIsVisibleModal(true)}
           >
             <div className="about__button--action">
@@ -33,6 +34,7 @@ export const About: React.FunctionComponent = () => {
           <Button
             color="success"
             size="sm"
+            name="add-about"
             onClick={() => setIsVisibleModal(true)}
           >
             <div className="about__button--action">
@@ -43,11 +45,11 @@ export const About: React.FunctionComponent = () => {
         )}
       </div>
       <Modal open={isVisibleModal} onChangeOpen={setIsVisibleModal}>
-      <div style={{ width: "100%", maxWidth: "800px" }}>
-        <Dialog>
-          <AboutForm edit={edit} />
-        </Dialog>
-      </div>
+        <div style={{ width: "100%", maxWidth: "800px" }}>
+          <Dialog>
+            <AboutForm edit={edit} />
+          </Dialog>
+        </div>
       </Modal>
     </section>
   );

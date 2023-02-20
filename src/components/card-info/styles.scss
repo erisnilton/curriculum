@@ -17,18 +17,17 @@
       font-size: 2rem;
       font-weight: 900;
       text-transform: uppercase;
-      text-shadow: rgb(0 0 0 / 29%) 2px 2px 4px;
       margin-bottom: -2rem;
     }
     &--description {
       font-size: 1.2rem;
-      color: var(--theme-light-panel);
-      font-weight: 300;
+      font-weight: 400;
+      color: #fff;
     }
 
     &--personal {
       list-style: none;
-      color: var(--theme-light-panel);
+      color: #fff;
       font-size: 0.938rem;
       font-weight: 400;
 
@@ -62,10 +61,9 @@
         width: 2.5rem;
         height: 2.5rem;
         border-radius: 50%;
-        background-color: #fff;
         margin-right: 0.625rem;
         transition: all 0.3s ease-in-out;
-        color: #000;
+        color: #fff;
 
         &:hover {
           transform: scale(1.1);

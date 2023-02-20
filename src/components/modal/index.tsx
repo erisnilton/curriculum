@@ -1,5 +1,4 @@
-import React, { useRef } from "react";
-import { useState, useEffect, useContext } from "react";
+import React, { useContext, useEffect, useRef, useState } from "react";
 import { createPortal } from "react-dom";
 import { CSSTransition } from "react-transition-group";
 
@@ -76,7 +75,6 @@ const Modal: React.FunctionComponent<ModalProps> = (props) => {
         unmountOnExit
         timeout={200}
         nodeRef={divRef}
-
       >
         <div ref={divRef} className="modal" onClick={close}>
           <div className="modal__content" onClick={handleContentClick}>

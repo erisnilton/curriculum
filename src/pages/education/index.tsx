@@ -1,13 +1,13 @@
-import { useState } from "react";
-import EducationForm from "../../components/education-form";
-import TimeLine from "../../components/timeline";
-import Book from "../../images/book.png";
-import Modal from "../../components/modal";
-import Button from "../../components/button";
-import Dialog from "../../components/dialog";
 import AddIcon from "@mui/icons-material/Add";
-import { useEducationContext } from "../../contexts/education-context";
+import { useState } from "react";
+import Button from "../../components/button";
 import { CardEducation } from "../../components/card-education";
+import Dialog from "../../components/dialog";
+import EducationForm from "../../components/education-form";
+import Modal from "../../components/modal";
+import TimeLine from "../../components/timeline";
+import { useEducationContext } from "../../contexts/education-context";
+import Book from "../../images/book.png";
 import "./styles.scss";
 
 export const Education: React.FunctionComponent = () => {
@@ -27,6 +27,7 @@ export const Education: React.FunctionComponent = () => {
           <Button
             color="success"
             size="sm"
+            name="add-education"
             onClick={() => setIsVisibleModal(true)}
           >
             <div className="education__button--action">

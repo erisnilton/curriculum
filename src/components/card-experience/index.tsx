@@ -1,16 +1,16 @@
-import Button from "../button";
-import TimeLineItem from "../timeline-item";
-import EditIcon from "@mui/icons-material/Edit";
 import DeleteIcon from "@mui/icons-material/Delete";
-import "./styles.scss";
-import Modal from "../modal";
-import Dialog from "../dialog";
-import { useState, useMemo, createRef } from "react";
-import { useExperienceContext } from "../../contexts/experience-context";
-import ExperienceForm from "../experience-form";
+import EditIcon from "@mui/icons-material/Edit";
+import { createRef, useMemo, useState } from "react";
+import { CSSTransition, TransitionGroup } from "react-transition-group";
 import { DeleteExperience } from "../../backend";
+import { useExperienceContext } from "../../contexts/experience-context";
+import Button from "../button";
 import Confirm from "../confirm";
-import { TransitionGroup, CSSTransition } from "react-transition-group";
+import Dialog from "../dialog";
+import ExperienceForm from "../experience-form";
+import Modal from "../modal";
+import TimeLineItem from "../timeline-item";
+import "./styles.scss";
 
 export const CardExperience: React.FunctionComponent = () => {
   const [isModalVisible, setIsModalVisible] = useState(false);
@@ -47,14 +47,14 @@ export const CardExperience: React.FunctionComponent = () => {
   return (
     <>
       <TransitionGroup className="list-item">
-        {experienceList.map(({item, nodeRef}) => (
+        {experienceList.map(({ item, nodeRef }) => (
           <CSSTransition timeout={250} classNames="item" key={item.id}>
             <TimeLineItem pointer={item.institution.at(0)} key={item.id}>
               <div ref={nodeRef} className="card__experience">
                 <div className="card__experience--header">
-                  <h6 className="card__experience--header-title">
+                  <span className="card__experience--header-title">
                     {item.institution}
-                  </h6>
+                  </span>
                   <div className="card__experience--header-subtitle">
                     <span>
                       {`${item.title} | ${item.start_date} - ${item.end_date}`}{" "}
@@ -70,6 +70,8 @@ export const CardExperience: React.FunctionComponent = () => {
                   <Button
                     color="primary"
                     size="sm"
+                    name="edit"
+                    title="Editar"
                     onClick={() => {
                       setIdSelected(item.id);
                       setIsModalVisible(true);
@@ -80,6 +82,8 @@ export const CardExperience: React.FunctionComponent = () => {
                   <Button
                     color="danger"
                     size="sm"
+                    name="delete"
+                    title="Deletar"
                     onClick={handleDelete(item.id)}
                   >
                     <DeleteIcon />

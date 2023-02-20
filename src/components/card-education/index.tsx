@@ -1,16 +1,16 @@
+import DeleteIcon from "@mui/icons-material/Delete";
+import EditIcon from "@mui/icons-material/Edit";
+import { createRef, useMemo, useState } from "react";
+import { CSSTransition, TransitionGroup } from "react-transition-group";
+import { DeleteEducation } from "../../backend";
 import { useEducationContext } from "../../contexts/education-context";
 import Button from "../button";
-import TimeLineItem from "../timeline-item";
-import EditIcon from "@mui/icons-material/Edit";
-import DeleteIcon from "@mui/icons-material/Delete";
-import "./styles.scss";
-import Modal from "../modal";
+import Confirm from "../confirm";
 import Dialog from "../dialog";
 import EducationForm from "../education-form";
-import { createRef, useRef, useState, useMemo } from "react";
-import { DeleteEducation } from "../../backend";
-import Confirm from "../confirm";
-import { CSSTransition, TransitionGroup } from "react-transition-group";
+import Modal from "../modal";
+import TimeLineItem from "../timeline-item";
+import "./styles.scss";
 
 export const CardEducation: React.FunctionComponent = () => {
   const [isModalVisible, setIsModalVisible] = useState(false);
@@ -53,9 +53,9 @@ export const CardEducation: React.FunctionComponent = () => {
             <TimeLineItem pointer={item.institution.at(0)}>
               <div ref={nodeRef} className="card__education">
                 <div className="card__education--header">
-                  <h6 className="card__education--header-title">
+                  <span className="card__education--header-title">
                     {item.institution}
-                  </h6>
+                  </span>
                   <div className="card__education--header-subtitle">
                     <span>
                       {`${item.course} | ${item.start_date} - ${item.end_date}`}
@@ -71,6 +71,8 @@ export const CardEducation: React.FunctionComponent = () => {
                   <Button
                     color="primary"
                     size="sm"
+                    name="edit"
+                    title="Editar"
                     onClick={() => {
                       setIdSelected(item.id);
                       setIsModalVisible(true);
@@ -80,6 +82,8 @@ export const CardEducation: React.FunctionComponent = () => {
                   </Button>
                   <Button
                     color="danger"
+                    name="delete"
+                    title="Deletar"
                     size="sm"
                     onClick={handleDelete(item.id)}
                   >

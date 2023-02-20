@@ -18,10 +18,10 @@ const Confirm: React.FunctionComponent<ConfirmProps> = (props) => {
         <div className="confirm__title">{title}</div>
         <div className="confirm__message">{message}</div>
         <div className="confirm__actions">
-          <Button color="secondary" size="sm" onClick={onCancel}>
+          <Button color="secondary" name="cancel" size="sm" onClick={onCancel}>
             Cancelar
           </Button>
-          <Button color="primary" size="sm" onClick={onConfirm}>
+          <Button color="primary" name="confirm" size="sm" onClick={onConfirm}>
             Confirmar
           </Button>
         </div>

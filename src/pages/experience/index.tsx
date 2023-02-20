@@ -1,16 +1,15 @@
+import AddIcon from "@mui/icons-material/Add";
 import React, { useState } from "react";
+import Button from "../../components/button";
+import { CardExperience } from "../../components/card-experience";
+import Dialog from "../../components/dialog";
+import ExperienceForm from "../../components/experience-form";
+import Modal from "../../components/modal";
 import TimeLine from "../../components/timeline";
 import XP from "../../images/xp.png";
-import Modal from "../../components/modal";
-import Button from "../../components/button";
-import Dialog from "../../components/dialog";
-import AddIcon from "@mui/icons-material/Add";
 import "./styles.scss";
-import ExperienceForm from "../../components/experience-form";
-import { CardExperience } from "../../components/card-experience";
 
 export const Experience: React.FunctionComponent = () => {
-
   const [isVisibleModal, setIsVisibleModal] = useState(false);
   return (
     <>
@@ -21,10 +20,11 @@ export const Experience: React.FunctionComponent = () => {
         </div>
         <TimeLine>
           <CardExperience />
-            <div className="experience__button">
+          <div className="experience__button">
             <Button
               color="success"
               size="sm"
+              name="add-experience"
               onClick={() => setIsVisibleModal(true)}
             >
               <div className="experience__button--action">
@@ -32,17 +32,16 @@ export const Experience: React.FunctionComponent = () => {
                 <span>Experiência Profissionais</span>
               </div>
             </Button>
-          </div>  
+          </div>
         </TimeLine>
         <Modal open={isVisibleModal} onChangeOpen={setIsVisibleModal}>
-        <div style={{width: '100%', maxWidth: '800px'}}>
-          <Dialog>
-            <ExperienceForm />
-          </Dialog>
-        </div>
+          <div style={{ width: "100%", maxWidth: "800px" }}>
+            <Dialog>
+              <ExperienceForm />
+            </Dialog>
+          </div>
         </Modal>
       </section>
-    
     </>
   );
 };

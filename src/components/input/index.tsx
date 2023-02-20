@@ -1,6 +1,6 @@
-import "./styles.scss";
-import { useFormContext } from "react-hook-form";
 import classNames from "classnames";
+import { useFormContext } from "react-hook-form";
+import "./styles.scss";
 
 export interface InputProps {
   placeholder?: string;
@@ -43,4 +43,3 @@ export const Input: React.FunctionComponent<InputProps> = (props) => {
     </div>
   );
 };
-

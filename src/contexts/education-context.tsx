@@ -3,12 +3,12 @@ import { GetEducation } from "../backend";
 import { EducationSchema } from "../lib/validation";
 
 export const EducationContext = React.createContext({
-  items: [] as EducationSchema [],
+  items: [] as EducationSchema[],
   loadItems: () => {},
 });
 
 export const EducationProvider = ({ children }: any) => {
-  const [items, setItems] = React.useState([] as EducationSchema []);
+  const [items, setItems] = React.useState([] as EducationSchema[]);
 
   const loadItems = () => {
     GetEducation()

@@ -25,13 +25,28 @@
     justify-content: center;
     transform: translateY(-50%);
     width: 100%;
+
+    & button:hover {
+      box-shadow: 0 0 0 0.125rem var(--theme-light-primary);
+      transition: all 0.3s ease-in-out;
+    }
+
     
     &--action {
       display: flex;
       justify-content: center;
       align-items: center;
+
+      & button {
+        background-color: var(--theme-light-primary) !important;
+      }
+
+      & svg {
+        color: #fff;
+      }
       
       & span {
+        color: #fff;
         margin-left: 0.125rem;
       }
     }

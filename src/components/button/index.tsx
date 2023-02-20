@@ -1,5 +1,5 @@
-import "./style.scss";
 import classNames from "classnames";
+import "./style.scss";
 
 export interface ButtonProps {
   children?: React.ReactNode;
@@ -11,15 +11,17 @@ export interface ButtonProps {
     | "warning"
     | "info"
     | "light"
-    | "dark"
+    | "dark";
   rounded?: boolean;
   flat?: boolean;
   size?: "sm" | "md" | "lg";
+  name?: string;
+  title?: string;
   onClick?: React.DOMAttributes<HTMLButtonElement>["onClick"];
 }
 
 const Button = (props: ButtonProps) => {
-  const { color, size, children, rounded, flat, onClick } = props;
+  const { color, size, children, rounded, flat,name, title, onClick } = props;
   return (
     <button
       className={classNames([
@@ -32,6 +34,9 @@ const Button = (props: ButtonProps) => {
         },
       ])}
       onClick={onClick}
+      name={name}
+      title={title}
+      aria-label={name}
     >
       {" "}
       {children && children}

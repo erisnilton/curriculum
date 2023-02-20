@@ -1,17 +1,21 @@
-import React, { useEffect } from "react";
-import { useForm, FormProvider } from "react-hook-form";
-import { ExperienceSchema } from "../../lib/validation";
 import { zodResolver } from "@hookform/resolvers/zod";
+import React, { useEffect } from "react";
+import { FormProvider, useForm } from "react-hook-form";
+import { ExperienceSchema } from "../../lib/validation";
 
-import { Input } from "../input";
-import TextArea from "../textarea";
-import { useModal } from "../modal";
 import Button from "../button";
+import { Input } from "../input";
+import { useModal } from "../modal";
+import TextArea from "../textarea";
 import "./styles.scss";
 
-import { useExperienceContext } from "../../contexts/experience-context";
-import { CreateExperience, GetExperienceById, UpdateExperience } from "../../backend";
 import { toast } from "react-toastify";
+import {
+  CreateExperience,
+  GetExperienceById,
+  UpdateExperience,
+} from "../../backend";
+import { useExperienceContext } from "../../contexts/experience-context";
 
 export interface ExperienceFormProps {
   edit?: boolean;
@@ -28,6 +32,11 @@ const ExperienceForm: React.FunctionComponent<ExperienceFormProps> = ({
 
   const modal = useModal();
   const { loadItems } = useExperienceContext();
+
+  const handleCancel = (e) => {
+    e.preventDefault();
+    modal.close();
+  };
 
   const onSubmit = async (values: ExperienceSchema) => {
     if (edit) {
@@ -80,10 +89,12 @@ const ExperienceForm: React.FunctionComponent<ExperienceFormProps> = ({
           </div>
 
           <div className="experience__form--action">
-            <Button color="secondary" onClick={modal.close}>
+            <Button color="secondary" name="cancel" onClick={handleCancel}>
               Cancelar
             </Button>
-            <Button color="primary">Salvar</Button>
+            <Button color="primary" name="save">
+              Salvar
+            </Button>
           </div>
         </form>
       </FormProvider>

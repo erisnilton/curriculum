@@ -1,19 +1,23 @@
-import { useForm, FormProvider } from "react-hook-form";
-import { EducationSchema } from "../../lib/validation";
 import { zodResolver } from "@hookform/resolvers/zod";
+import { useEffect } from "react";
+import { FormProvider, useForm } from "react-hook-form";
+import { toast } from "react-toastify";
+import {
+  CreateEducation,
+  GetEducationById,
+  UpdateEducation
+} from "../../backend";
+import { useEducationContext } from "../../contexts/education-context";
+import { EducationSchema } from "../../lib/validation";
+import Button from "../button";
+import { Input } from "../input";
+import { useModal } from "../modal";
 import TextArea from "../textarea";
 import "./styles.scss";
-import { useModal } from "../modal";
-import Button from "../button";
-import { useEducationContext } from "../../contexts/education-context";
-import { Input } from "../input";
-import react, { useEffect } from "react";
-import { CreateEducation, GetEducationById, UpdateEducation } from "../../backend";
-import { toast } from "react-toastify";
 
 export interface EducationFormProps {
   edit?: boolean;
-  id?: number
+  id?: number;
 }
 
 const EducationForm: React.FunctionComponent<EducationFormProps> = ({
@@ -39,7 +43,7 @@ const EducationForm: React.FunctionComponent<EducationFormProps> = ({
     }
   }, [edit, id]);
 
-  const onSubmit = async (values: EducationSchema) => {    
+  const onSubmit = async (values: EducationSchema) => {
     if (edit) {
       await UpdateEducation(values, id);
       toast.success("Informação atualizada com sucesso!", {
@@ -82,10 +86,10 @@ const EducationForm: React.FunctionComponent<EducationFormProps> = ({
           </div>
 
           <div className="education__form--action">
-            <Button color="secondary" onClick={hadleCancel}>
+            <Button color="secondary" name="cancel" onClick={hadleCancel}>
               Cancelar
             </Button>
-            <Button color="primary">Salvar</Button>
+            <Button color="primary" name="save">Salvar</Button>
           </div>
         </form>
       </FormProvider>
